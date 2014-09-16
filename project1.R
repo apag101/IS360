@@ -15,7 +15,7 @@
         } else {
             md<- x[x[length(na.omit(x))/2]]+1/2}
     },
-    sdv = function(x) { for (i in na.omit(x))
+    sdv = function(x) { for (i in na.omit(x))       #calculate standard deviation
         {
             sqrt(((x-mean)+x)^2)
         }
