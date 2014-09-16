@@ -17,11 +17,11 @@
     },
     sdv = function(x) { for (i in na.omit(x))       #calculate standard deviation
         {
-            sqrt(((x-mean)+x)^2)
+            sqrt(((x-stats$mean(x))+x)^2)
         }
     }
     
 )
-x<-c(1,2,3,4,5)
+x<-c(1,2,3,4,5,NA)
 lapply(stats, function(f) f(x))
 
