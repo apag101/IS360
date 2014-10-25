@@ -34,6 +34,9 @@ readHTMLTable(theURL, which = 1)
 
 # 5. Modify the returned data frame so only the Last Name and Points columns are shown.
 
+havalue <-readHTMLTable(theURL, which = 1)
+havalue[,c(3,4)]
+
 # 6 Identify another interesting page on the web with HTML table values.  
 # This may be somewhat tricky, because while
 # HTML tables are great for web-page scrapers, many HTML designers now prefer 
@@ -61,8 +64,7 @@ Table code below:
     </table>
 
 # 7 How many HTML tables does that page contain?
-havalue <-readHTMLTable(theURL, which = 1)
-havalue[,c(3,4)]
+#It contains one table
 
 # 8 Identify your web browser, and describe (in one or two sentences) 
 # how you view HTML page source in your web browser.
