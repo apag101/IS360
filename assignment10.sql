@@ -21,6 +21,7 @@ order by title;
 
 --Challenge Exercise
 --Create a PostgreSQL table and load it with information about real films, using data that you’ve found on the web.
+--retteived from http://files.grouplens.org/datasets/movielens/ml-100k-README.txt
 
 dvdrental=# create table rfilms(id integer, title varchar(100), rdate date, idbm_
 url varchar(250));
