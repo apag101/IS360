@@ -1,4 +1,4 @@
---IS 360 Week 12 Quiz Page 1
+﻿--IS 360 Week 12 Quiz Page 1
 --Week 12 Quiz
 --The Week 12 quiz is due end of day Sunday November 16th. You may work with a partner if you wish.
 --Please use the tables in the flights database. Directions for downloading and restoring the flights database are provided in the Week 10 folder. For each question, your deliverable is the SQL query or queries.
@@ -9,9 +9,8 @@ select tailnum, count(tailnum) from flights
 where tailnum in ('N125UW','N848MQ','N328AA','N247JB')
 group by tailnum
 order by count desc
-limit 1;
+limit 4;
 
---"N328AA";393
 
 --2. For each of these four planes, show the corresponding meta-data (model, manufacturer, engines, etc.) about each plane? What is surprising about the information returned? How do you think this could happen?
 
@@ -41,10 +40,11 @@ where month = 2 and day between 14 and 17 and tailnum in ('N125UW','N848MQ','N32
 --5. Rewrite the join as a left join, and compare your results.
 --It now returns 14 rows, including the airports with null in the name.
 
-select tailnum, concat(month,'/',day,'/',year) as FlightDate, dep_delay, arr_delay, dest, name 
+select tailnum, concat(month,'/',day,'/',year) as FlightDate, dep_delay, arr_delay, dest, name
 from flights 
 left join airports on faa = dest
-where month = 2 and day between 14 and 17 and tailnum in ('N125UW','N848MQ','N328AA','N247JB');
+where month = 2 and day between 14 and 17 and tailnum in ('N125UW','N848MQ','N328AA','N247JB')
+order by name;
 
 --6. Add a second left join clause to also show the number of seats in the planes
 
@@ -52,7 +52,8 @@ select flights.tailnum, concat(month,'/',day,'/',flights.year) as FlightDate, de
 from flights 
 left join airports on faa = dest
 left join planes on flights.tailnum = planes.tailnum
-where month = 2 and day between 14 and 17 and flights.tailnum in ('N125UW','N848MQ','N328AA','N247JB');
+where month = 2 and day between 14 and 17 and flights.tailnum in ('N125UW','N848MQ','N328AA','N247JB')
+order by seats;
 
 --7. Rewrite your query, using table aliases. (Results unchanged from above). Do you find the code more readable with or wthout table aliases?
 --More easier to read without aliases since you have the table clearly listed, but quicker to code with table alias.

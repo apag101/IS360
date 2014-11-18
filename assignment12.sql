@@ -5,13 +5,14 @@
 
 --1. What are the names of the five airports that receive the most flights?
 
-select a.name, f.dest, count(f.*) as num_of_flights from 
+select a.name, count(f.*) as num_of_flights from 
 flights f join airports a
 on f.dest = a.faa
-group by name, dest
+group by name
 order by num_of_flights desc
 limit 5;
 
 --2. What are American Airlines’ destination cities from the New York airports?
 
-select distinct dest from flights where carrier = 'AA' and origin in ('JFK', 'LGA') order by dest;
+select distinct name from flights f join airports a on f.dest = a.faa
+where carrier = 'AA' and origin in ('JFK', 'LGA') order by name;
